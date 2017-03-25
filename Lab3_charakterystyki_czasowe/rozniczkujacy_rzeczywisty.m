@@ -2,7 +2,7 @@ clear all; close all;
 
 % Obiekt rozniczkujacy rzeczywisty
 % ************************************************************************
-% Odpowiedz skokowa
+% Charakterystyka skokowa
 % ************************************************************************
 figure(1)
 T = 10; Td = 30;
@@ -19,7 +19,7 @@ g = tf([Td 0], [T 1]);
 
 plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
 grid on
-title('Odpowiedz skokowa przy zmiennej stalej rozniczkowania')
+title('Charakterystyka skokowa przy zmiennej stalej rozniczkowania')
 xlabel('czas [s]')
 ylabel('odpowiedz')
 legend('Td = 30', 'Td = 50', 'Td = 80')
@@ -39,12 +39,12 @@ g = tf([Td 0], [T 1]);
 
 plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
 grid on
-title('Odpowiedz skokowa przy zmiennej stalej calkowania')
+title('Charakterystyka skokowa przy zmiennej stalej calkowania')
 xlabel('czas [s]')
 ylabel('odpowiedz')
 legend('T = 10', 'T = 20', 'T = 30')
 % ************************************************************************
-% Odpowiedz impulsowa
+% Charakterystyka impulsowa
 % ************************************************************************
 figure(3)
 T = 10; Td = 5;
@@ -61,7 +61,7 @@ g = tf([Td 0], [T 1]);
 
 plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
 grid on
-title('Odpowiedz impulsowa przy zmiennej stalej rozniczkowania')
+title('Charakterystyka impulsowa przy zmiennej stalej rozniczkowania')
 xlabel('czas [s]')
 ylabel('odpowiedz')
 legend('Td = 5', 'Td = 10', 'Td = 15')
@@ -81,7 +81,7 @@ g = tf([Td 0], [T 1]);
 
 plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
 grid on
-title('Odpowiedz impulsowa przy zmiennej stalej czasowej')
+title('Charakterystyka impulsowa przy zmiennej stalej czasowej')
 xlabel('czas [s]')
 ylabel('odpowiedz')
 legend('T = 10', 'T = 20', 'T = 30')

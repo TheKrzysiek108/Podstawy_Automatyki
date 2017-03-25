@@ -2,7 +2,7 @@ clear all; close all;
 
 % Obiekt calkujacy z inercja I rzedu
 % ************************************************************************
-% Odpowiedz skokowa
+% Charakterystyka skokowa
 % ************************************************************************
 figure(1)
 k = 1; T = 10; Ti = 2;
@@ -19,7 +19,7 @@ g = tf([k], [T*Ti, Ti, 0] );
 
 plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
 grid on
-title('Odpowiedz skokowa przy zmiennym wzmocnieniu')
+title('Charakterystyka skokowa przy zmiennym wzmocnieniu')
 xlabel('czas [s]')
 ylabel('odpowiedz')
 legend('k = 1','k = 5','k = 10')
@@ -39,7 +39,7 @@ g = tf([k], [T*Ti, Ti, 0] );
 
 plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
 grid on
-title('Odpowiedz skokowa przy zmiennej sta³ej ca³kowania')
+title('Charakterystyka skokowa przy zmiennej stalej calkowania')
 xlabel('czas [s]')
 ylabel('odpowiedz')
 legend('Ti = 0.5','Ti = 1','Ti = 1.5')
@@ -59,12 +59,12 @@ g = tf([k], [T*Ti, Ti, 0] );
 
 plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
 grid on
-title('Odpowiedz skokowa przy zmiennej sta³ej czasowej')
+title('Charakterystyka skokowa przy zmiennej stalej czasowej')
 xlabel('czas [s]')
 ylabel('odpowiedz')
 legend('T = 1','T = 7','T = 50')
 % ************************************************************************
-% Odpowiedz impulsowa
+% Charakterystyka impulsowa
 % ************************************************************************
 figure(4)
 k = 1; T = 10; Ti = 2;
@@ -81,7 +81,7 @@ g = tf([k], [T*Ti, Ti, 0] );
 
 plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
 grid on
-title('Odpowiedz impulsowa przy zmiennym wzmocnieniu')
+title('Charakterystyka impulsowa przy zmiennym wzmocnieniu')
 xlabel('czas [s]')
 ylabel('odpowiedz')
 legend('k = 1','k = 5','k = 10')
@@ -101,7 +101,7 @@ g = tf([k], [T*Ti, Ti, 0] );
 
 plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
 grid on
-title('Odpowiedz impulsowa przy zmiennym Ti')
+title('Charakterystyka impulsowa przy zmiennej stalej calkowania')
 xlabel('czas [s]')
 ylabel('odpowiedz')
 legend('Ti = 0.5','Ti = 1','Ti = 1.5')
@@ -121,7 +121,7 @@ g = tf([k], [T*Ti, Ti, 0] );
 
 plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
 grid on
-title('Odpowiedz impulsowa przy zmiennej sta³ej czasowej')
+title('Charakterystyka impulsowa przy zmiennej stalej czasowej')
 xlabel('czas [s]')
 ylabel('odpowiedz')
 legend('T = 5','T = 15','T = 30')
