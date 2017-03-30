@@ -2,134 +2,135 @@ clear all; close all;
 
 % Obiekt oscylacyjny II rzedu
 % ************************************************************************
-% Charakterystyka skokowa
+% Charakterystyki Nyquista
 % ************************************************************************
 figure(1)
-k = 1; T0 = 10; ksi = 2;
+k = 1; T0 = 10; ksi = 0.5;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y1 t1] = step(g, 100);
+nyquist(g), hold on
 
-k = 5; T0 = 10; ksi = 2;
+k = 5; T0 = 10; ksi = 0.5;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y2 t2] = step(g, 100);
+nyquist(g)
 
-k = 10; T0 = 10; ksi = 2;
+k = 10; T0 = 10; ksi = 0.5;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y3 t3] = step(g, 100);
+nyquist(g)
 
-plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
+
 grid on
-title('Charakterystyka skokowa przy zmiennym wzmocnieniu')
-xlabel('czas [s]')
-ylabel('odpowiedz')
+title('Charakterystyki Nyquista przy zmiennym wzmocnieniu')
+
+
 legend('k = 1','k = 5','k = 10')
 % ************************************************************************
 figure(2)
-k = 1; T0 = 10; ksi = 0;
-g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y1 t1] = step(g, 100);
+% k = 5; T0 = 10; ksi = 0;
+% g = tf([k], [T0^2, 2*ksi*T0, 1] );
+% nyquist(g);
+% hold on
 
-k = 1; T0 = 10; ksi = 0.5;
+k = 5; T0 = 10; ksi = 0.5;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y2 t2] = step(g, 100);
+nyquist(g)
 
-k = 1; T0 = 10; ksi = 1;
+k = 5; T0 = 10; ksi = 1;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y3 t3] = step(g, 100);
+nyquist(g)
 
-k = 1; T0 = 10; ksi = 2;
+k = 5; T0 = 10; ksi = 2;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y4 t4] = step(g, 100);
+nyquist(g)
 
-plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b', t4, y4, 'm')
+
 grid on
-title('Charakterystyka skokowa przy zmiennym ksi')
-xlabel('czas [s]')
-ylabel('odpowiedz')
-legend('ksi = 0','ksi = 0.5','ksi = 1', 'ksi = 2')
+title('Charakterystyki Nyquista przy zmiennym ksi')
+
+
+% legend('ksi = 0','ksi = 0.5','ksi = 1', 'ksi = 2')
 % ************************************************************************
 figure(3)
-k = 1; T0 = 1; ksi = 2;
+k = 1; T0 = 70; ksi = 0.5;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y1 t1] = step(g, 100);
+nyquist(g), hold on
 
-k = 1; T0 = 7; ksi = 2;
+k = 1; T0 = 40; ksi = 0.5;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y2 t2] = step(g, 100);
+nyquist(g)
 
-k = 1; T0 = 20; ksi = 2;
+k = 1; T0 = 20; ksi = 0.5;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y3 t3] = step(g, 100);;
+nyquist(g);
 
-plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
+
 grid on
-title('Charakterystyka skokowa przy zmiennej stalej czasowej')
-xlabel('czas [s]')
-ylabel('odpowiedz')
-legend('T0 = 5','T0 = 15','T0 = 30')
+title('Charakterystyki Nyquista przy zmiennej stalej czasowej')
+
+
+legend('T0 = 70','T0 = 40','T0 = 20')
 % ************************************************************************
-% Charakterystyka impulsowa
+% Charakterystyki Bodego
 % ************************************************************************
 figure(4)
 k = 1; T0 = 10; ksi = 2;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y1 t1] = impulse(g, 100);
+bode(g), hold on
 
 k = 5; T0 = 10; ksi = 2;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y2 t2] = impulse(g, 100);
+bode(g)
 
 k = 10; T0 = 10; ksi = 2;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y3 t3] = impulse(g, 100);
+bode(g)
 
-plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
+
 grid on
-title('Charakterystyka impulsowa przy zmiennym wzmocnieniu')
-xlabel('czas [s]')
-ylabel('odpowiedz')
+title('Charakterystyki Bodego przy zmiennym wzmocnieniu')
+
+
 legend('k = 1','k = 5','k = 10')
 % ************************************************************************
 figure(5)
 k = 1; T0 = 10; ksi = 0;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y1 t1] = impulse(g, 100);
+bode(g), hold on
 
 k = 1; T0 = 10; ksi = 0.5;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y2 t2] = impulse(g, 100);
+bode(g)
 
 k = 1; T0 = 10; ksi = 1;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y3 t3] = impulse(g, 100);
+bode(g)
 
 k = 1; T0 = 10; ksi = 2;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y4 t4] = impulse(g, 100);
+bode(g)
 
-plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b', t4, y4, 'm')
+
 grid on
-title('Charakterystyka impulsowa przy zmiennym ksi')
-xlabel('czas [s]')
-ylabel('odpowiedz')
+title('Charakterystyki Bodego przy zmiennym ksi')
+
+
 legend('ksi = 0','ksi = 0.5','ksi = 1', 'ksi = 2')
 % ************************************************************************
 figure(6)
 k = 1; T0 = 1; ksi = 2;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y1 t1] = impulse(g, 100);
+bode(g), hold on
 
 k = 1; T0 = 7; ksi = 2;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y2 t2] = impulse(g, 100);
+bode(g)
 
 k = 1; T0 = 20; ksi = 2;
 g = tf([k], [T0^2, 2*ksi*T0, 1] );
-[y3 t3] = impulse(g, 100);;
+bode(g);
 
-plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
+
 grid on
-title('Charakterystyka impulsowa przy zmiennej stalej czasowej')
-xlabel('czas [s]')
-ylabel('odpowiedz')
+title('Charakterystyki Bodego przy zmiennej stalej czasowej')
+
+
 legend('T0 = 5','T0 = 15','T0 = 30')

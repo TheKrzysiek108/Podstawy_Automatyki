@@ -40,36 +40,86 @@ clear all; close all;
 % % ************************************************************************
 % % Charakterystyki Bodego
 % % ************************************************************************
-figure(3)
-k = 1; T = 5;
-g = tf([k], [T 1]);
-bode(g), hold on
-asymp(g)
-k = 1 ; T = 10;
-g = tf([k], [T 1]);
-bode(g)
+figure(1);
 
-k = 1 ; T = 15;
-g = tf([k], [T 1]);
-bode(g)
+t=logspace(-3,3,10000);
+k=1;
+T=1;
+licz = [k];
+mian = [T 1];
+sys = tf(licz,mian);
+printsys(licz,mian);
 
-grid on
-title('Charakterystyki Bodego przy zmiennej stalej czasowej')
-legend('T = 5', 'T = 10', 'T = 15')
-% ************************************************************************
-% figure(4)
-% k = 1; T = 100;
-% g = tf([k], [T 1]);
-% bode(g), hold on
-% 
-% k = 5 ; T = 100;
-% g = tf([k], [T 1]);
-% bode(g)
-% 
-% k = 10 ; T = 100;
-% g = tf([k], [T 1]);
-% bode(g)
-% 
-% grid on
-% title('Charakterystyki Bodego przy zmiennym wzmocnieniu')
-% legend('k = 1', 'k = 5', 'k = 10')
+bode(sys, t)
+xlim([t(1) t(10000)]);
+hold on
+
+k=0.5;
+T=1;
+licz = [k];
+mian = [T 1];
+sys = tf(licz,mian);
+printsys(licz,mian);
+
+bode(sys, t)
+xlim([t(1) t(10000)]);
+
+k=2;
+T=1;
+licz = [k];
+mian = [T 1];
+sys = tf(licz,mian);
+printsys(licz,mian);
+
+bode(sys, t)
+xlim([t(1) t(10000)]);
+
+title('Charakterystyka Bodego inercyjny I rz?d. T = const');
+ 
+ 
+legend('k=1','k=0.5','k=2');
+
+hold off;
+
+figure(2);
+k=1;
+T=1;
+
+k=1;
+T=1;
+licz = [k];
+mian = [T 1];
+sys = tf(licz,mian);
+printsys(licz,mian);
+
+bode(sys, t)
+xlim([t(1) t(10000)]);
+hold on
+
+k=1;
+T=0.5;
+licz = [k];
+mian = [T 1];
+sys = tf(licz,mian);
+printsys(licz,mian);
+
+bode(sys, t)
+xlim([t(1) t(10000)]);
+
+k=1;
+T=2;
+licz = [k];
+mian = [T 1];
+sys = tf(licz,mian);
+printsys(licz,mian);
+
+bode(sys, t)
+xlim([t(1) t(10000)]);
+
+title('Charakterystyka Bodego inercyjny I rz?d. k = const');
+ 
+ 
+
+legend('T=1','T=0.5','T=2');
+
+hold off;

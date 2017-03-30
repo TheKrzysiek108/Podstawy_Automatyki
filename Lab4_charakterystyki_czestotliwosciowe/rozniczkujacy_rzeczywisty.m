@@ -2,86 +2,86 @@ clear all; close all;
 
 % Obiekt rozniczkujacy rzeczywisty
 % ************************************************************************
-% Charakterystyka skokowa
+% Charakterystyka Nyquista
 % ************************************************************************
 figure(1)
 T = 10; Td = 30;
 g = tf([Td 0], [T 1]);
-[y1 t1] = step(g, 100);
+nyquist(g), hold on
 
 T = 10; Td = 50;
 g = tf([Td 0], [T 1]);
-[y2 t2] = step(g, 100);
+nyquist(g)
 
 T = 10; Td = 80;
 g = tf([Td 0], [T 1]);
-[y3 t3] = step(g, 100);
+nyquist(g)
 
-plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
+
 grid on
-title('Charakterystyka skokowa przy zmiennej stalej rozniczkowania')
-xlabel('czas [s]')
-ylabel('odpowiedz')
+title('Charakterystyka Nyquista przy zmiennej stalej rozniczkowania')
+
+
 legend('Td = 30', 'Td = 50', 'Td = 80')
 % ************************************************************************
 figure(2)
 T = 10; Td = 10;
 g = tf([Td 0], [T 1]);
-[y1 t1] = step(g, 100);
+nyquist(g), hold on
 
 T = 20; Td = 10;
 g = tf([Td 0], [T 1]);
-[y2 t2] = step(g, 100);
+nyquist(g)
 
 T = 30; Td = 10;
 g = tf([Td 0], [T 1]);
-[y3 t3] = step(g, 100);
+nyquist(g)
 
-plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
+
 grid on
-title('Charakterystyka skokowa przy zmiennej stalej calkowania')
-xlabel('czas [s]')
-ylabel('odpowiedz')
+title('Charakterystyka Nyquista przy zmiennej stalej czasowej')
+
+
 legend('T = 10', 'T = 20', 'T = 30')
 % ************************************************************************
-% Charakterystyka impulsowa
+% Charakterystyki Bodego
 % ************************************************************************
 figure(3)
 T = 10; Td = 5;
 g = tf([Td 0], [T 1]);
-[y1 t1] = impulse(g, 100);
+bode(g), hold on
 
 T = 10; Td = 10;
 g = tf([Td 0], [T 1]);
-[y2 t2] = impulse(g, 100);
+bode(g)
 
 T = 10; Td = 15;
 g = tf([Td 0], [T 1]);
-[y3 t3] = impulse(g, 100);
+bode(g)
 
-plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
+
 grid on
-title('Charakterystyka impulsowa przy zmiennej stalej rozniczkowania')
-xlabel('czas [s]')
-ylabel('odpowiedz')
+title('Charakterystyki Bodego przy zmiennej stalej rozniczkowania')
+
+
 legend('Td = 5', 'Td = 10', 'Td = 15')
 % ************************************************************************
 figure(4)
 T = 10; Td = 10;
 g = tf([Td 0], [T 1]);
-[y1 t1] = impulse(g, 100);
+bode(g), hold on
 
 T = 20; Td = 10;
 g = tf([Td 0], [T 1]);
-[y2 t2] = impulse(g, 100);
+bode(g)
 
 T = 30; Td = 10;
 g = tf([Td 0], [T 1]);
-[y3 t3] = impulse(g, 100);
+bode(g)
 
-plot(t1, y1, 'r', t2, y2, 'g', t3, y3, 'b')
+
 grid on
-title('Charakterystyka impulsowa przy zmiennej stalej czasowej')
-xlabel('czas [s]')
-ylabel('odpowiedz')
+title('Charakterystyki Bodego przy zmiennej stalej czasowej')
+
+
 legend('T = 10', 'T = 20', 'T = 30')
