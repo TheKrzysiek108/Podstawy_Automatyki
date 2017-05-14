@@ -79,3 +79,18 @@ axis([-2 0 -2 2])
 figure(10)
 impulse(feedback(Go, 1, -1))
 title('Odpowiedz impulsowa dla zmiany Td')
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+clear all; close all;
+T = 0.01;
+k = 1; Ti = 50; Td = .05;
+G = tf(10, [1, 2, 2, 1]);
+Lr = [k*(Ti*T+Td*Ti) k*(T+Ti) k];
+Mr = [Ti*T Ti 0];
+Gr = tf(Lr, Mr);
+Go = series(Gr, G); % uklad otwarty
+impulse(feedback(Go, 1))
+title('Odpowiedz impulsowa k = 1; Ti = 50; Td = 0.05')
+figure
+step(feedback(Go, 1))
+title('Odpowiedz skokowa k = 1; Ti = 50; Td = 0.05')
